@@ -1,0 +1,23 @@
+.black {
+    color: black;
+}
+
+.light-blue {
+    color: #52525b;
+}
+.font-size-20 {
+    font-size: 20px;
+}
+
+.font-size-30 {
+    font-size: 30px;
+}
+
+.form{
+    font-weight: 600;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

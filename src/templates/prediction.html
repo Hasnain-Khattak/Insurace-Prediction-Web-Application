@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>
+Prediction!
+</title>
+{% endblock %}
+
+{% block body %}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-12">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Insurance Prediction</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
+        {% if pred %}
+        <h1 class="text-3xl font-bold underline font-size-20 my-10" style="color: rgb(77, 76, 76);">
+          
+          Your Insurance Cost Is ${{pred}}
+        </h1>
+        {% endif %}
+      </div>
+      
+      <form method="post" action="">
+        {% csrf_token %}
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <div class="relative flex-grow w-full">
+              <label for="age" class="leading-7 text-sm black font-size-20">Age</label>
+              <input type="text" id="age" name="age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter Your Age">
+            </div>
+            <div class="relative flex-grow w-full">
+              <label for="Sex" class="leading-7 text-sm black font-size-20">Sex</label>
+              <select id="sex" name="sex" class="form-select w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300" aria-label="Default select example">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+            </div>
+          </div>
+
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <div class="relative flex-grow w-full">
+              <label for="bmi" class="leading-7 text-sm black font-size-20">BMI</label>
+              <input type="text" id="bmi" name="bmi" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Enter Your BMI">
+            </div>
+            
+            <div class="relative flex-grow w-full">
+              <label for="children" class="leading-7 text-sm black font-size-20">Children</label>
+              <input type="text" id="children" name="children"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="How Many Children You Have?">
+            </div>
+          </div>
+
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <div class="relative flex-grow w-full">
+              <label for="smoker" class="leading-7 text-sm black font-size-20">Smoker</label>
+              <select id="smoker" name="smoker" class="form-select w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300" aria-label="Default select example">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+            <div class="relative flex-grow w-full">
+              <label for="region" class="leading-7 text-sm black font-size-20">Region</label>
+              <select id="region" name="region" class="form-select w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300d" aria-label="Default select example">
+                <option value="0">Northeast</option>
+                <option value="1">Northwest</option>
+                <option value="2">Southeast</option>
+                <option value="3">Southwest</option>
+              </select>
+            </div>
+          </div>
+          <div class="text-center my-4"><button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">Submit</button></div>
+      </form>
+    </div>
+  </section>
+
+{% endblock %}
